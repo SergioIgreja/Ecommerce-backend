@@ -16,3 +16,18 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//List books
+Route::get('books', 'BookController@index');
+//Get book by id
+Route::get('book/{id}', 'BookController@show');
+
+
+//List Authors
+Route::get('authors', 'AuthorController@index');
+
+//List Genres
+Route::get('genres', 'GenreController@index');
+
+//Get cover from book
+Route::get('cover/{id}','CoverController@image');
